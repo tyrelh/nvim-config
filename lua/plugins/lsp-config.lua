@@ -23,7 +23,7 @@ return {
     config = function()
       local lspconfig = require 'lspconfig'
       lspconfig.lua_ls.setup {}
-      -- lspconfig.yamlls.setup {}
+      lspconfig.yamlls.setup {}
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Show symbol documentation' })
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = '[g]oto [d]efinition' })
