@@ -2,11 +2,11 @@
 -- https://github.com/nvim-tree/nvim-tree.lua
 
 -- Toggle NvimTree on boot
-vim.api.nvim_create_autocmd('VimEnter', {
-  callback = function()
-    vim.cmd 'NvimTreeToggle'
-  end,
-})
+-- vim.api.nvim_create_autocmd('VimEnter', {
+--   callback = function()
+--     vim.cmd 'NvimTreeToggle'
+--   end,
+-- })
 
 vim.keymap.set('n', '<leader>tf', '<cmd> NvimTreeToggle <CR>', { desc = '[T]oggle [F]ile Tree' })
 
