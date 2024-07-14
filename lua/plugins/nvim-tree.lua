@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
   end,
 })
 
-vim.keymap.set('n', '<leader>ft', '<cmd> NvimTreeToggle <CR>', { desc = 'Toggle [F]ile [T]ree' })
+vim.keymap.set('n', '<leader>tf', '<cmd> NvimTreeToggle <CR>', { desc = '[T]oggle [F]ile Tree' })
 
 return {
   'nvim-tree/nvim-tree.lua',
