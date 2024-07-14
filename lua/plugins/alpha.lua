@@ -55,29 +55,29 @@ return {
 
     alpha.setup(dashboard.opts)
 
-    -- TODO: the below comments disable and enable status and tabline. I'd like to do something similar for my tabs and lualine
-    --
-    -- vim.api.nvim_create_autocmd('User', {
-    --   pattern = 'AlphaReady',
-    --   desc = 'Disable status and tabline for alpha',
-    --   callback = function()
-    --     vim.go.laststatus = 0
-    --     vim.opt.showtabline = 0
-    --   end,
-    -- })
-    -- vim.api.nvim_create_autocmd('BufUnload', {
-    --   buffer = 0,
-    --   desc = 'Enable status and tabline after alpha',
-    --   callback = function()
-    --     vim.go.laststatus = 3
-    --     vim.opt.showtabline = 2
-    --   end,
-    -- })
+    -- TODO: havent figured out how to disable lualine on the alpha dashboard yet
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'AlphaReady',
+      desc = 'Disable status and tabline for alpha',
+      callback = function()
+        -- vim.go.laststatus = 0
+        vim.opt.showtabline = 0
+      end,
+    })
+    vim.api.nvim_create_autocmd('BufUnload', {
+      buffer = 0,
+      desc = 'Enable status and tabline after alpha',
+      callback = function()
+        -- vim.go.laststatus = 3
+        vim.opt.showtabline = 2
+      end,
+    })
 
     -- NOTE: This gets nvim-tree to open on startup, and thus is an implicit dependency
     vim.api.nvim_create_autocmd('User', {
       once = true,
       pattern = 'LazyVimStarted',
+      desc = 'Open NvimTree after startup',
       callback = function()
         -- local stats = require('lazy').stats()
         -- local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
