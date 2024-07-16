@@ -5,7 +5,7 @@ return {
   },
   opts = {
     options = {
-      mode = 'tabs',
+      mode = 'buffers',
     },
   },
 }
