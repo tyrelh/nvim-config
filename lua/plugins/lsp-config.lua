@@ -33,6 +33,29 @@ return {
             enable = false,
           },
         },
+        settings = {
+          yaml = {
+            -- CloudFormation
+            customTags = {
+              '!FindInMap',
+              '!FindInMap sequence',
+              '!GetAtt',
+              '!GetAtt sequence',
+              '!ImportValue',
+              '!ImportValue sequence',
+              '!Join',
+              '!Join sequence',
+              '!Ref',
+              '!Ref sequence',
+              '!Select',
+              '!Select sequence',
+              '!Split',
+              '!Split sequence',
+              '!Sub',
+              '!Sub sequence',
+            },
+          },
+        },
       }
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Show symbol documentation' })
