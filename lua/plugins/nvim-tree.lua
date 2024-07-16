@@ -7,6 +7,9 @@
 --     vim.cmd 'NvimTreeToggle'
 --   end,
 -- })
+--
+local window_width = vim.api.nvim_win_get_width(0)
+local file_pane_width = math.floor(window_width * 0.2)
 
 vim.keymap.set('n', '<leader>tf', '<cmd> NvimTreeToggle <CR>', { desc = '[T]oggle [F]ile Tree' })
 
@@ -30,7 +33,7 @@ return {
     view = {
       adaptive_size = false,
       side = 'right',
-      width = 27,
+      width = file_pane_width,
       preserve_window_proportions = true,
     },
     git = {
