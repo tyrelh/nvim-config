@@ -1,3 +1,4 @@
+-- https://github.com/folke/which-key.nvim
 return {
   'folke/which-key.nvim',
   event = 'VeryLazy',
@@ -6,6 +7,7 @@ return {
   },
   opts = {
     -- preset = 'modern',
+    delay = 1000,
     spec = {
       { '<leader>c', group = '[C]ode' },
       { '<leader>c_', hidden = true },
