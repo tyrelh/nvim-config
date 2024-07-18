@@ -293,6 +293,7 @@ return {
         -- pcall(vim.cmd.AlphaRedraw)
 
         vim.cmd 'NvimTreeToggle'
+        vim.cmd(vim.api.nvim_replace_termcodes('normal <C-h>', true, true, true))
       end,
     })
 
