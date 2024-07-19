@@ -12,7 +12,9 @@ return {
       require('mason-lspconfig').setup {
         ensure_installed = {
           'bashls',
+          'gopls',
           'lua_ls',
+          'pylsp',
           'tsserver',
           'yamlls',
         },
@@ -25,7 +27,30 @@ return {
     config = function()
       local lspconfig = require 'lspconfig'
       lspconfig.bashls.setup {}
+      lspconfig.gopls.setup {}
       lspconfig.lua_ls.setup {}
+      lspconfig.pylsp.setup {
+        settings = {
+          pylsp = {
+            plugins = {
+              -- formatter options
+              black = { enabled = false },
+              autopep8 = { enabled = false },
+              yapf = { enabled = false },
+              -- linter options
+              pylint = { enabled = false, executable = 'pylint' },
+              pyflakes = { enabled = false },
+              pycodestyle = { enabled = false },
+              -- type checker
+              pylsp_mypy = { enabled = true },
+              -- auto-completion options
+              jedi_completion = { fuzzy = true },
+              -- import sorting
+              pyls_isort = { enabled = true },
+            },
+          },
+        },
+      }
       lspconfig.tsserver.setup {}
       lspconfig.yamlls.setup {
         redhat = {
