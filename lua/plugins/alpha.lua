@@ -23,114 +23,6 @@ local function pick_color()
   }
   return colors[math.random(#colors)]
 end
---
--- return {
---   'goolord/alpha-nvim',
---   dependencies = {
---     'nvim-tree/nvim-web-devicons',
---     'nvim-tree/nvim-tree.lua', -- NOTE: see note below
---   },
---
---   config = function()
---     local alpha = require 'alpha'
---     local dashboard = require 'alpha.themes.startify'
---
---     local battle = {
---       [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣦⣄⡀⠀⠀⠀⠀⠀⠀⣀⠀⠀⡇⢹⣦⡀⠀⢰⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⢠⣀⣤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣆⡉⠙⠲⠤⢤⣀⡀⡏⣷⣄⣇⠀⢻⣿⣦⢸⠈⣷⣄⠀⠀⠀⢠⣠⡤⠼⠒⠋⢉⣬⣿⣿⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⡿⣷⣤⣄⣀⣿⣿⣁⣾⡿⣿⣦⣄⣾⠽⡿⣧⠾⡭⢷⡚⠉⠉⠁⢀⣀⣤⣾⣿⣿⡿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣟⣻⣭⣉⡉⠉⠛⣿⣣⢝⣧⣄⠉⠙⢻⡷⣡⠟⣜⡯⢷⣒⣒⣲⡿⣞⢯⣹⣾⡟⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣿⣵⣿⣿⣷⣤⣲⠿⣜⣺⣼⣿⣧⣒⣶⠿⣥⢻⡬⢷⣫⡝⣭⡳⣹⡜⣮⡷⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⠀⣠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣷⣤⣀⠈⢙⣯⢳⡹⣿⡉⠉⠙⢩⢿⢮⡝⣲⢣⣏⠷⡷⡟⢷⡳⢥⢿⢻⠤⣤⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⣼⢿⡇⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⢾⣿⣿⣤⡞⣶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿⣷⣬⣿⢏⢧⡳⣭⣿⣧⣒⣲⡿⢳⡜⣣⠗⣎⡏⢷⣩⢧⣝⣮⣛⣶⡟⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⢀⣿⣌⢿⢿⡇⠀⠀⠀⠀⠀⢀⣴⣴⠛⣱⣾⣿⣿⣿⣿⡏⢀⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣼⣏⡉⡉⠙⡿⣎⣿⣻⠉⠁⠀⢿⡧⣝⢳⣚⣥⠻⣜⡼⢣⢷⠟⡛⢛⡻⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⢠⡞⠋⠁⠀⣺⣿⡀⠀⠀⠀⢰⣟⣿⠿⢋⣃⣿⣿⡟⠀⣯⡵⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠉⣬⣿⣿⣷⣶⡷⣻⠜⡽⣻⣷⣷⣾⡽⡳⢎⡳⣜⡲⣛⡴⡹⢏⣿⢦⡑⣂⣯⠷⣘⠿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⣿⡁⠀⠀⣸⠀⣿⣤⠀⠀⣠⣿⡿⠁⡴⠿⢹⣿⣿⢁⣀⣀⣀⣿⣹⣧⢀⣰⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣧⣴⣶⣿⣭⡀⠌⣹⣗⣣⡿⠗⠛⠉⢸⡷⣍⡗⣫⠵⣎⡵⢣⡳⡝⢯⡜⣏⠿⣙⣮⡹⣍⡞⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠘⣷⣦⠤⠋⣶⣿⡧⠴⠾⣿⣿⠀⠒⠀⠀⣾⣻⣷⠿⣿⣿⣿⣶⣿⣿⣼⡿⠿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢺⣟⣲⣧⣿⣿⣿⣿⣿⣟⡬⢳⠿⣿⢿⣶⣿⣛⡴⢫⣕⡫⡖⣭⠳⣕⣫⣗⣾⣬⣷⣩⠖⣵⢺⣜⣿⣿⢿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⢀⣶⣮⣿⣼⣶⡛⠀⠀⠀⠘⣻⣿⣾⡄⢀⣴⣛⣾⡷⠀⠀⠹⣿⣿⣿⣿⣹⣯⣴⣿⠿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⠛⢉⣹⣧⣏⣷⣹⡾⠋⢁⣹⣶⣩⠗⣮⡱⣝⣲⣻⣼⣿⣿⢯⡿⣽⢿⡿⣿⣿⣾⢿⡽⣯⢿⣷⡂⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠙⠻⣶⣦⣀⣩⡁⠀⣤⣼⡟⠉⠈⣻⣿⣾⠿⠿⠁⣶⣶⡌⢻⣿⣌⣻⣿⣼⣿⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⢿⣿⣿⣿⣿⢾⣿⣾⣿⣷⣾⣿⣿⣻⢿⡿⣷⢿⡿⣾⣻⣟⣾⣻⡿⣿⣯⣿⣽⣳⣟⣯⣿⣽⣻⣿⣿⣷⠂⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⣾⠹⠟⢣⣭⣶⣿⠒⡇⠀⣀⣟⣁⣀⣶⠤⠤⢤⣿⣡⣸⣿⡿⣿⡮⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠚⣿⣟⡿⣽⣻⣾⣷⣯⢿⣽⣻⢾⡽⣯⣟⣯⢿⣽⣳⣟⣾⣳⢯⡿⣽⣻⣟⡿⣿⡏⠛⠛⠻⡿⢹⣟⠿⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⠘⣻⠀⠈⠛⠛⠹⠈⢀⣠⣶⣾⢷⡾⠁⠰⢿⣶⠀⣿⣿⡘⣷⣹⣿⣾⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⠟⠻⢟⡴⢣⠿⣿⡾⣽⢯⣟⣷⣻⣞⡿⣞⣷⣻⢾⡽⣯⣟⡷⣯⣿⣿⣿⡉⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⠘⡏⠀⡀⠀⣀⣠⣾⣿⣽⣿⣷⣾⡇⢠⣴⣾⣿⢾⣿⣿⢳⣿⣿⡉⢿⣿⢻⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣤⣴⣞⣍⣦⣬⣷⣞⡭⣷⣿⣿⢿⣽⣻⣞⣷⣻⢾⣿⡽⣾⡽⣯⣟⡷⣯⣟⣷⣻⣿⣟⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⠀⢿⣦⣽⣾⣿⠿⠾⣿⣿⣿⣿⡾⣧⡬⠁⠸⣿⠇⣿⣿⣿⣿⢋⣿⠈⢩⣼⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⣿⣿⣿⢿⣻⣽⣻⢿⣾⢿⣽⣻⣞⣷⣻⢾⣽⣻⣯⣟⣷⣻⢷⣯⣟⣷⣻⣞⡷⣯⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⠀⠀⠈⣹⠟⢹⡎⡱⣮⡿⠁⢉⣹⣿⣿⡂⠋⠀⠀⣻⡛⠋⢙⣿⡤⠽⣸⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⣿⣿⣿⣾⣽⣻⣾⢯⣷⣻⢾⡷⣯⢿⡾⣽⣿⣟⡾⣽⣻⢾⡽⣞⣷⢯⣟⣷⣻⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---       [[⠀⠀⠀⠀⠀⠀⠀⢀⡴⢯⣠⢿⣐⡷⠟⠁⠀⠘⠻⠟⠻⢦⡀⢀⣠⣿⠇⠀⠀⢸⡹⠿⢏⡍⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠿⢿⠛⠛⠛⠻⢿⣽⣯⣿⣽⣾⣻⣽⣾⣽⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
---     }
---     local bulbasaur = {
---       [[⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠏⣉⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
---       [[⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢸⢅⣿⢄⣤⠛⠛⢻⣿⣿⣿⣿⣿⣿⣿⣿]],
---       [[⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⠉⢔⣾⢕⣿⢕⣶⠉⠉⠿⢷⣶⣉⣉⣿⣿⣿⣿⣿]],
---       [[⣿⣿⣿⣿⣿⣿⣿⣿⣇⣸⣿⣿⣿⢕⣿⢕⣿⢕⣿⣿⣿⣧⣤⠛⣿⣿⡸⢿⣿⣿]],
---       [[⣿⣿⣿⡟⠛⠛⣿⡇⢸⡟⠛⠛⢪⣿⠓⠛⣤⣤⡜⢻⣿⣿⣿⣿⣀⢿⣧⡜⢻⣿]],
---       [[⣿⣿⡇⢸⣿⠉⢰⣶⣶⡎⠉⣿⣷⣶⣿⣿⣿⣿⡇⢸⣿⣿⣿⣿⢕⢸⢕⡇⢸⣿]],
---       [[⣿⡇⢸⣿⣿⣿⣿⣿⣧⣤⣿⠛⣿⣿⠿⢿⣿⣿⣿⡇⢸⣿⣿⣿⠿⣸⡟⢣⣼⣿]],
---       [[⣿⡏⢱⣆⠸⣿⣀⣸⣿⣿⣀⠿⠉⡀⢿⣷⡎⢹⣿⣷⡎⢉⣹⠉⠶⢏⣱⣾⣿⣿]],
---       [[⡇⢸⡟⠓⢡⣿⣿⣿⣿⣿⣿⡀⠛⠊⢸⣿⣧⣼⣿⣿⡇⢸⣿⣶⣶⣧⡜⢻⣿⣿]],
---       [[⣷⡎⠉⠹⢷⡾⠿⠷⠾⠿⢏⣉⣉⡹⢏⣱⡆⣀⣿⡏⢹⣿⡿⢿⣿⡿⢷⡎⢹⣿]],
---       [[⣿⣿⡇⢠⡜⢣⣤⡀⢀⢔⢕⢕⢕⠕⠛⢣⣼⡟⠃⣤⣀⠘⢻⡇⢸⠃⣼⣧⡜⢻]],
---       [[⣿⡇⢸⣿⣿⣶⣶⣉⡁⠰⠶⠶⠶⠶⣉⡉⢱⡆⣿⣿⣿⣶⣾⡇⠰⣿⡏⢹⡇⢸]],
---       [[⣿⢸⡟⢻⣿⣿⠿⣀⣸⣿⣿⣿⣿⣿⣿⣿⡇⢸⡟⢻⣿⡟⢣⣼⣿⣿⣿⣿⣿⣿]],
---       [[⣿⣷⣶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣤⣤⣤⣼⣿⣿⣿⣿⣿⣿⣿⣿]],
---     }
---     local c = pick_color()
---     dashboard.section.header.opts.hl = c
---     local neovim = {
---       [[                                                                       ]],
---       [[                                                                       ]],
---       [[                                                                       ]],
---       [[                                                                       ]],
---       [[                                                                     ]],
---       [[       ████ ██████           █████      ██                     ]],
---       [[      ███████████             █████                             ]],
---       [[      █████████ ███████████████████ ███   ███████████   ]],
---       [[     █████████  ███    █████████████ █████ ██████████████   ]],
---       [[    █████████ ██████████ █████████ █████ █████ ████ █████   ]],
---       [[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
---       [[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
---       [[                                                                       ]],
---       [[                                                                       ]],
---       [[                                                                       ]],
---       -- c,
---     }
---     dashboard.section.header.val = neovim
---
---     alpha.setup(dashboard.opts)
---
---     -- TODO: havent figured out how to disable lualine on the alpha dashboard yet
---     vim.api.nvim_create_autocmd('User', {
---       pattern = 'AlphaReady',
---       desc = 'Disable status and tabline for alpha',
---       callback = function()
---         -- vim.go.laststatus = 0
---         vim.opt.showtabline = 0
---       end,
---     })
---     vim.api.nvim_create_autocmd('BufUnload', {
---       buffer = 0,
---       desc = 'Enable status and tabline after alpha',
---       callback = function()
---         -- vim.go.laststatus = 3
---         vim.opt.showtabline = 2
---       end,
---     })
---
---     -- NOTE: This gets nvim-tree to open on startup, and thus is an implicit dependency
---     vim.api.nvim_create_autocmd('User', {
---       once = true,
---       pattern = 'LazyVimStarted',
---       desc = 'Open NvimTree after startup',
---       callback = function()
---         -- local stats = require('lazy').stats()
---         -- local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
---         -- dashboard.section.footer.val = '⚡ Neovim loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms'
---         -- pcall(vim.cmd.AlphaRedraw)
---
---         vim.cmd 'NvimTreeToggle'
---       end,
---     })
---   end,
--- }
 
 return {
   'goolord/alpha-nvim',
@@ -140,11 +32,9 @@ return {
     { 'juansalvatore/git-dashboard-nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
   },
   config = function()
-    -- Import alpha and dashboard
     local alpha = require 'alpha'
     local dashboard = require 'alpha.themes.dashboard'
 
-    -- Define custom icons
     local icons = {
       ui = {
         file = '',
@@ -212,8 +102,6 @@ return {
 
       return git_branch_section, { unpack(git_dashboard, 2, #git_dashboard - 1) }
     end
-
-    -- Define custom header with ASCII art or any custom message
 
     local ascii_header = [[
                                                                    
@@ -287,16 +175,12 @@ return {
       pattern = 'LazyVimStarted',
       desc = 'Open NvimTree after startup',
       callback = function()
-        -- local stats = require('lazy').stats()
-        -- local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        -- dashboard.section.footer.val = '⚡ Neovim loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms'
-        -- pcall(vim.cmd.AlphaRedraw)
-
         vim.cmd 'NvimTreeToggle'
         vim.cmd(vim.api.nvim_replace_termcodes('normal <C-h>', true, true, true))
       end,
     })
 
+    -- NOTE: these were to get statusline to not appear on alpha, but they're not working correctly
     -- vim.api.nvim_create_autocmd('User', {
     --   pattern = 'AlphaReady',
     --   desc = 'Disable status and tabline for alpha',
