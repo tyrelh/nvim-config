@@ -17,7 +17,7 @@ return {
           'filename',
           symbols = {
             modified = '',
-            readonly = '󰷤 RO',
+            readonly = '󰷤',
             unnamed = '󰊠', -- unnamed buffers.
             newfile = '', -- newly created file before first write
           },
