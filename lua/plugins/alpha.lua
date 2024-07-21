@@ -26,6 +26,7 @@ local icons = {
     lightning = '⚡',
     branch = '',
     tree = '󰙅',
+    lazy = '󰒲',
   },
 }
 
@@ -40,32 +41,35 @@ return {
     local alpha = require 'alpha'
     local dashboard = require 'alpha.themes.dashboard'
 
+    -- v RECENT FILES v --
+
+    -- this line gets vim.v.oldfiles to be populated sooner during initial load so that it can be accessed below
     vim.cmd 'rshada'
+    local base_directory = vim.fn.getcwd()
+
+    -- functions used to style paths for buttons
+    local function remove_cwd(path)
+      return path:gsub(base_directory .. '/', '')
+    end
+    local function shorten_home(path)
+      return path:gsub(vim.env.HOME, '~')
+    end
     local filtered_paths = {}
 
+    -- filter out buffers belonging to NvimTree
     for _, path in ipairs(vim.v.oldfiles) do
       if not path:match 'NvimTree_%d+$' then
         table.insert(filtered_paths, path)
       end
     end
 
-    local base_directory = vim.fn.getcwd()
+    -- sort paths into those in the current working directory and those not
+    local desired_cwd_paths_amount = 5
+    local desired_global_paths_amount = 5
     local cwd_paths = {}
     local current_cwd_paths_amount = 0
-    local desired_cwd_paths_amount = 5
     local global_paths = {}
     local current_global_paths_amount = 0
-    local desired_global_paths_amount = 5
-
-    local function remove_cwd(path)
-      return path:gsub(base_directory .. '/', '')
-    end
-
-    local function shorten_home(path)
-      return path:gsub(vim.env.HOME, '~')
-    end
-
-    -- sort paths into those in the current working directory and those not
     for _, path in ipairs(filtered_paths) do
       if string.find(path, base_directory, 1, true) then
         if current_cwd_paths_amount < desired_cwd_paths_amount then
@@ -96,6 +100,7 @@ return {
       return icons.ui.elipsis .. truncated_path
     end
 
+    -- map a list of paths to alpha buttons
     local function map_path_to_button(paths, keybind_offset, style_func)
       local buttons = {}
       for i, path in ipairs(paths) do
@@ -112,6 +117,9 @@ return {
       end
       return buttons
     end
+
+    -- ^ RECENT FILES ^ --
+    -- v     GIT      v --
 
     local function get_git_repo()
       local result = vim.fn.system 'git remote get-url origin'
@@ -131,8 +139,8 @@ return {
       return icons.ui.branch .. '  ' .. result:gsub('%s+', '')
     end
 
-    local repo_name = get_git_repo()
-    local branch_name = get_git_branch()
+    -- ^      GIT     ^ --
+    -- v    LAYOUT    v --
 
     local function pad(n)
       return { type = 'padding', val = n }
@@ -163,6 +171,9 @@ return {
 ██████  █████████████████████ ████ █████ █████ ████ ██████
     ]]
 
+    -- ^    LAYOUT    ^ --
+    -- v   SECTIONS   v --
+
     local header = {
       type = 'text',
       val = center_header(ascii_header),
@@ -171,7 +182,7 @@ return {
 
     local git_section = {
       type = 'text',
-      val = repo_name .. '  ' .. branch_name,
+      val = get_git_repo() .. '  ' .. get_git_branch(),
       opts = { position = 'center', hl = colors.purple },
     }
 
@@ -212,33 +223,14 @@ return {
       type = 'group',
       val = {
         dashboard.button('f', icons.ui.tree .. '  File Tree', '<cmd>NvimTreeToggle<CR>'),
-        -- dashboard.button('e', icons.ui.file .. '  New file', '<cmd>new<CR>'),
-        -- dashboard.button('r', icons.ui.files .. '  Recent Files', '<cmd>Telescope oldfiles<cr>'),
-        -- dashboard.button('f', icons.ui.open_folder .. '  Explorer', '<cmd>Oil<cr>'),
-        -- dashboard.button('c', icons.ui.config .. '  Neovim config', '<cmd>Oil /home/cafebabe/install/dotfiles/config/nvim<cr>'),
-        -- dashboard.button('g', icons.ui.git .. '  Open Git', '<cmd>Neogit<CR>'),
-        -- dashboard.button('l', '󰒲  Lazy', '<cmd>Lazy<cr>'),
+        dashboard.button('l', icons.ui.lazy .. '  Lazy', '<cmd>Lazy<cr>'),
         dashboard.button('q', icons.ui.close .. '  Quit NVIM', ':qa<CR>'),
       },
       opts = { position = 'center' },
     }
 
-    -- Custom footer showing number of plugins loaded
-    -- local footer = {
-    --   type = 'text',
-    --   val = { '⚡' .. require('lazy').stats().loaded .. ' plugins loaded.' },
-    --   opts = { position = 'center', hl = 'Comment' },
-    -- }
+    -- ^   SECTIONS   ^ --
 
-    -- Custom section with a personal greeting
-    -- local bottom_section = {
-    --   type = 'text',
-    --   val = "Hi Tyrel, it's" .. os.date ' %H:%M' .. '. How are you doing today?',
-    --   opts = { position = 'center' },
-    -- }
-    --
-
-    -- Setting up the alpha layout
     alpha.setup {
       layout = {
         header,
@@ -263,24 +255,6 @@ return {
     --   callback = function()
     --     vim.cmd 'NvimTreeToggle'
     --     vim.cmd(vim.api.nvim_replace_termcodes('normal <C-h>', true, true, true))
-    --   end,
-    -- })
-
-    -- these were to get statusline to not appear on alpha, but they're not working correctly
-    -- vim.api.nvim_create_autocmd('User', {
-    --   pattern = 'AlphaReady',
-    --   desc = 'Disable status and tabline for alpha',
-    --   callback = function()
-    --     -- vim.go.laststatus = 0
-    --     vim.opt.showtabline = 0
-    --   end,
-    -- })
-    -- vim.api.nvim_create_autocmd('BufUnload', {
-    --   buffer = 0,
-    --   desc = 'Enable status and tabline after alpha',
-    --   callback = function()
-    --     -- vim.go.laststatus = 3
-    --     vim.opt.showtabline = 1
     --   end,
     -- })
   end,
