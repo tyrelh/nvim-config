@@ -26,6 +26,9 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
+      bash = { 'beautysh' },
+      sh = { 'beautysh' },
+      go = { 'gofmt' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
