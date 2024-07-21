@@ -14,13 +14,13 @@ return {
       'luadoc',
       'markdown',
       'vim',
-      'vimdoc'
+      'vimdoc',
       'javascript',
       'typescript',
       'java',
       'html',
       'terraform',
-      'tsx'
+      'tsx',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,
