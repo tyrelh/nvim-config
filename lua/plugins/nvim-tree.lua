@@ -11,7 +11,7 @@
 
 -- set pane width based on window width on startup
 local window_width = vim.api.nvim_win_get_width(0)
-local file_pane_width = math.floor(window_width * 0.2)
+local file_pane_width = math.floor(window_width * 0.25)
 
 vim.keymap.set('n', '<leader>tf', '<cmd> NvimTreeToggle <CR>', { desc = '[T]oggle [F]ile Tree' })
 
