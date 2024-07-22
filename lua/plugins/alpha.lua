@@ -214,7 +214,7 @@ return {
 
     local actions_section_header = {
       type = 'text',
-      val = icons.ui.lightning .. ' Actions                                         ', -- these spaces are to aligh the text with section below
+      val = icons.ui.lightning .. ' Actions                                        ', -- these spaces are to aligh the text with section below
       opts = { position = 'center', hl = colors.purple },
     }
     local actions_section = {
