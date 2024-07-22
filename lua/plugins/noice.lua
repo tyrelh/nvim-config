@@ -8,6 +8,7 @@ return {
     'folke/noice.nvim',
     event = 'VeryLazy',
     opts = {
+      background_colour = '#000000',
       messages = {
         -- enabled = false,
       },

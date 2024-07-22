@@ -4,8 +4,6 @@
 -- Interesting example of a bulbasaur ascii art, but it's a picture
 -- https://imgur.com/gallery/ascii-pokedex-generation-1-1-3-version-2-67uYiaQ
 
-math.randomseed(os.time())
-
 local colors = {
   green = 'String',
   blue = 'Function',
