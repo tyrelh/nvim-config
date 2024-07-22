@@ -231,10 +231,12 @@ return {
 
     alpha.setup {
       layout = {
+        pad(2),
         header,
+        pad(1),
         git_section,
         cwd_section,
-        pad(1),
+        pad(2),
         recent_cwd_files_section_header,
         recent_cwd_files_section,
         pad(1),
