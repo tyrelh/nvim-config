@@ -186,7 +186,7 @@ return {
 
     local cwd_section = {
       type = 'text',
-      val = icons.ui.open_folder .. '  ' .. base_directory,
+      val = icons.ui.open_folder .. '  ' .. shorten_home(base_directory),
       opts = { position = 'center', hl = colors.pink },
     }
 
