@@ -8,7 +8,6 @@ return {
     'folke/noice.nvim',
     event = 'VeryLazy',
     opts = {
-      background_colour = '#000000',
       messages = {
         -- enabled = false,
       },
@@ -17,12 +16,16 @@ return {
       },
     },
     dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      'MunifTanjim/nui.nvim',
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      'rcarriga/nvim-notify',
+      'MunifTanjim/nui.nvim', -- https://github.com/rcarriga/nvim-notify?tab=readme-ov-file#configuration
+      {
+        'rcarriga/nvim-notify',
+        opts = {
+          background_colour = '#000000',
+          timeout = 3000,
+          stages = 'slide',
+          -- render = 'compact',
+        },
+      },
     },
   },
 }
