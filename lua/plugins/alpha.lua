@@ -232,7 +232,8 @@ return {
     local actions_section = {
       type = 'group',
       val = {
-        dashboard.button('f', icons.ui.tree .. '  File Tree', '<cmd>NvimTreeToggle<CR>'),
+        -- dashboard.button('f', icons.ui.tree .. '  File Tree', '<cmd>NvimTreeToggle<CR>'),
+        dashboard.button('f', icons.ui.tree .. '  File Tree', '<cmd>Neotree position=right<cr>'),
         dashboard.button('l', icons.ui.lazy .. '  Lazy', '<cmd>Lazy<cr>'),
         dashboard.button('q', icons.ui.close .. '  Quit NVIM', ':qa<CR>'),
       },
