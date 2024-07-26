@@ -56,6 +56,8 @@ return {
     -- filter out junk paths
     local filters = {
       'NvimTree_%d+$',
+      '^.*neo%-tree filesystem %[%d%]$',
+      '^term:%/%/.*',
     }
     local filtered_paths = {}
     for _, path in ipairs(vim.v.oldfiles) do
