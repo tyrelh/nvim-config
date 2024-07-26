@@ -5,6 +5,7 @@ return {
   },
   {
     'nvim-lualine/lualine.nvim',
+    dependencies = { 'folke/noice.nvim' },
     opts = {
       options = {
         component_separators = '',
@@ -31,7 +32,13 @@ return {
             left_padding = 0,
           },
         },
-        lualine_c = {},
+        lualine_c = {
+          {
+            require('noice').api.statusline.mode.get,
+            cond = require('noice').api.statusline.mode.has,
+            color = { fg = '#ff9e64' },
+          },
+        },
 
         lualine_x = {},
         lualine_y = {
@@ -63,6 +70,8 @@ return {
       tabline = {},
       extensions = {
         'nvim-tree',
+        'neo-tree',
+        'toggleterm',
       },
     },
   },

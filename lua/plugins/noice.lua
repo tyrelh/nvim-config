@@ -8,19 +8,25 @@ return {
     'folke/noice.nvim',
     event = 'VeryLazy',
     opts = {
-      messages = {
-        -- enabled = false,
+      -- display recording messages in notifications
+      routes = { {
+        view = 'notify',
+        filter = { event = 'msg_showmode' },
+      } },
       },
-      notify = {
-        -- enabled = false,
-      },
+      -- messages = {
+      -- enabled = false,
+      -- },
+      -- notify = {
+      -- enabled = false,
+      -- },
     },
     dependencies = {
       'MunifTanjim/nui.nvim', -- https://github.com/rcarriga/nvim-notify?tab=readme-ov-file#configuration
       {
         'rcarriga/nvim-notify',
         opts = {
-          background_colour = '#000000',
+          background_colour = '#000000', -- fix dumb warning message
           timeout = 3000,
           stages = 'slide',
           -- render = 'compact',
