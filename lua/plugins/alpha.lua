@@ -52,11 +52,21 @@ return {
     local function shorten_home(path)
       return path:gsub(vim.env.HOME, '~')
     end
-    local filtered_paths = {}
 
-    -- filter out buffers belonging to NvimTree
+    -- filter out junk paths
+    local filters = {
+      'NvimTree_%d+$',
+    }
+    local filtered_paths = {}
     for _, path in ipairs(vim.v.oldfiles) do
-      if not path:match 'NvimTree_%d+$' then
+      local should_filter = false
+      for _, filter in ipairs(filters) do
+        if path:match(filter) then
+          should_filter = true
+          break
+        end
+      end
+      if not should_filter then
         table.insert(filtered_paths, path)
       end
     end
