@@ -30,9 +30,11 @@ return {
       lspconfig.bashls.setup {}
       lspconfig.gopls.setup {}
       lspconfig.groovyls.setup {
-        -- on_attach = on_attach,
-        filetypes = { 'groovy' },
-        cmd = { 'java', '-jar', '/Users/tyrel/.local/share/nvim/mason/packages/groovy-language-server/build/libs/groovy-language-server-all.jar' },
+        cmd = {
+          'java',
+          '-jar',
+          '/Users/tyrel/.local/share/nvim/mason/packages/groovy-language-server/build/libs/groovy-language-server-all.jar',
+        },
       }
       lspconfig.lua_ls.setup {}
       lspconfig.pylsp.setup {
@@ -61,7 +63,7 @@ return {
       lspconfig.yamlls.setup {
         redhat = {
           telemetry = {
-            enable = false,
+            enabled = false,
           },
         },
         settings = {
