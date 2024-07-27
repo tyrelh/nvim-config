@@ -13,6 +13,7 @@ return {
         ensure_installed = {
           'bashls',
           'gopls',
+          'groovyls',
           'lua_ls',
           'pylsp',
           'tsserver',
@@ -28,6 +29,11 @@ return {
       local lspconfig = require 'lspconfig'
       lspconfig.bashls.setup {}
       lspconfig.gopls.setup {}
+      lspconfig.groovyls.setup {
+        -- on_attach = on_attach,
+        filetypes = { 'groovy' },
+        cmd = { 'java', '-jar', '/Users/tyrel/.local/share/nvim/mason/packages/groovy-language-server/build/libs/groovy-language-server-all.jar' },
+      }
       lspconfig.lua_ls.setup {}
       lspconfig.pylsp.setup {
         settings = {
