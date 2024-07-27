@@ -1,3 +1,4 @@
+vim.keymap.set('n', '<leader>cc', '<cmd>CopilotChatOpen<cr>', { noremap = true, silent = true, desc = 'Open [C]opilot [C]hat' })
 return {
   {
     'zbirenbaum/copilot.lua',
@@ -28,9 +29,6 @@ return {
       debug = true, -- Enable debugging
       -- See Configuration section for rest
     },
-    setup = function()
-      vim.keymap.set('n', '<leader>cc', '<cmd>CopilotChatOpen<cr>', { noremap = true, silent = true, desc = 'Open [C]opilot [C]hat' })
-    end,
     -- See Commands section for default commands if you want to lazy load on them
   },
 }
