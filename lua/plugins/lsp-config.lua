@@ -23,6 +23,7 @@ return {
     end,
   },
 
+  -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls
   {
     'neovim/nvim-lspconfig',
     config = function()
@@ -70,6 +71,7 @@ return {
           yaml = {
             schemas = {
               ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
+              ['https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json'] = '.*%.template%.ya?ml',
             },
             -- CloudFormation
             customTags = {
