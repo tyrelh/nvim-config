@@ -1,7 +1,7 @@
 -- Autocompletion
 return {
   'hrsh7th/nvim-cmp',
-  event = 'InsertEnter',
+  -- event = 'InsertEnter',
   dependencies = {
     -- Snippet Engine & its associated nvim-cmp source
     {
@@ -28,12 +28,10 @@ return {
       },
     },
     'saadparwaiz1/cmp_luasnip',
-
     -- Adds other completion capabilities.
-    --  nvim-cmp does not ship with all sources by default. They are split
-    --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
   },
   config = function()
     -- See `:help cmp`
@@ -41,6 +39,7 @@ return {
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
 
+    -- The below two blocks are taken from
     cmp.setup {
       snippet = {
         expand = function(args)
@@ -107,5 +106,25 @@ return {
         { name = 'path' },
       },
     }
+    -- https://www.youtube.com/watch?v=upM6FOtdLeU
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' },
+      },
+    })
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' },
+      }, {
+        {
+          name = 'cmdline',
+          -- option = {
+          --   ignore_cmds = { 'Man', '!' },
+          -- },
+        },
+      }),
+    })
   end,
 }

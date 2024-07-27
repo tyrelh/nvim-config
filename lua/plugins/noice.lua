@@ -6,20 +6,20 @@ return {
   -- for comamnds and searches
   {
     'folke/noice.nvim',
-    event = 'VeryLazy',
+    -- event = 'VeryLazy',
     opts = {
       -- display recording messages in notifications
       routes = {
         view = 'notify',
         filter = { event = 'msg_showmode' },
       },
-    },
-    -- clean command line
-    views = {
-      cmdline_popup = {
-        border = {
-          -- style = 'shadow',
-          padding = { 1, 2 },
+      -- clean command line
+      views = {
+        cmdline_popup = {
+          border = {
+            -- style = 'shadow',
+            padding = { 1, 2 },
+          },
         },
       },
     },
