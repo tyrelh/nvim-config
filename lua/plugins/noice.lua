@@ -1,3 +1,4 @@
+vim.keymap.set('n', '<leader>nd', '<cmd>NoiceDismiss<cr>', { desc = '[N]oice [D]ismiss', noremap = true, silent = true })
 return {
   -- https://github.com/folke/noice.nvim
   -- Taken from https://www.youtube.com/watch?v=upM6FOtdLeU
@@ -8,17 +9,17 @@ return {
     event = 'VeryLazy',
     opts = {
       -- display recording messages in notifications
-      routes = { {
+      routes = {
         view = 'notify',
         filter = { event = 'msg_showmode' },
-      } },
-      -- clean command line
-      views = {
-        cmdline_popup = {
-          border = {
-            -- style = 'shadow',
-            padding = { 1, 2 },
-          },
+      },
+    },
+    -- clean command line
+    views = {
+      cmdline_popup = {
+        border = {
+          -- style = 'shadow',
+          padding = { 1, 2 },
         },
       },
     },
@@ -30,7 +31,7 @@ return {
           background_colour = '#000000', -- fix dumb warning message
           timeout = 3000,
           stages = 'slide',
-          -- render = 'compact',
+          render = 'compact',
         },
       },
     },
