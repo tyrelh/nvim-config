@@ -1,4 +1,11 @@
 return {
   'pocco81/auto-save.nvim',
-  opts = {},
+  opts = {
+    trigger_events = {
+      'InsertLeave',
+      'BufLeave',
+      'ExitPre',
+      'FocusLost',
+    },
+  },
 }
