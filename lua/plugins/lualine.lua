@@ -15,22 +15,22 @@ return {
       },
       sections = {
         lualine_a = {
-          { 'mode', separator = { left = '', right = '' } },
+          { 'mode', separator = { left = '', right = '' }, padding = 0 },
         },
         lualine_b = {
-          { 'location', left_padding = 0 },
-          { 'progress', icon = '' },
-          { 'filetype', icon_only = false, right_padding = 0 },
-          {
-            'filename',
-            symbols = {
-              modified = '',
-              readonly = '󰷤',
-              unnamed = '󰊠', -- unnamed buffers.
-              newfile = '', -- newly created file before first write
-            },
-            left_padding = 0,
-          },
+          { 'location', padding = 0 },
+          { 'progress', icon = '', padding = 0 },
+          { 'filetype', icon_only = true, padding = { left = 1, right = 0 } },
+          -- {
+          --   'filename',
+          --   symbols = {
+          --     modified = '',
+          --     readonly = '󰷤',
+          --     unnamed = '󰊠', -- unnamed buffers.
+          --     newfile = '', -- newly created file before first write
+          --   },
+          --   left_padding = 0,
+          -- },
         },
         lualine_c = {
           {
