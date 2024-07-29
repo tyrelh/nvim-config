@@ -14,17 +14,19 @@ local colors = {
 }
 local icons = {
   ui = {
-    file = '',
-    files = '',
-    open_folder = '',
-    config = '',
-    close = '󰈆',
-    git = '',
-    elipsis = '󰇘',
-    lightning = '󱐋',
-    branch = '',
-    tree = '󰙅',
-    lazy = '󰒲',
+    file = ' ',
+    files = ' ',
+    open_folder = ' ',
+    config = ' ',
+    close = '󰈆 ',
+    git = ' ',
+    github = ' ',
+    elipsis = '󰇘 ',
+    lightning = '󱐋 ',
+    branch = ' ',
+    tree = '󰙅 ',
+    lazy = '󰒲 ',
+    terminal = ' ',
   },
 }
 
@@ -121,7 +123,7 @@ return {
         end
         table.insert(
           buttons,
-          dashboard.button(tostring(i + keybind_offset - 1), icons.ui.file .. '  ' .. truncate_path(path_desc, 44), function()
+          dashboard.button(tostring(i + keybind_offset - 1), icons.ui.file .. ' ' .. truncate_path(path_desc, 44), function()
             vim.cmd('e ' .. path)
           end)
         )
@@ -139,7 +141,7 @@ return {
       end
       -- Extract the repo name from the URL
       local repo_name = result:match '.*/(.*).git'
-      return icons.ui.git .. '  ' .. repo_name
+      return icons.ui.git .. ' ' .. repo_name
     end
 
     local function get_git_branch()
@@ -147,7 +149,7 @@ return {
       if vim.v.shell_error ~= 0 then
         return ''
       end
-      return icons.ui.branch .. '  ' .. result:gsub('%s+', '')
+      return icons.ui.branch .. '' .. result:gsub('%s+', '')
     end
 
     -- ^      GIT     ^ --
@@ -170,6 +172,22 @@ return {
       end
       return lines
     end
+    local haunter = {
+      [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+      [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+      [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣷⣀⣀⣀⣀⠀⠀⠀⠀⣀⣀⣀⣀⣠⣤⡤]],
+      [[⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀]],
+      [[⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠋⠀⠀⠀]],
+      [[⠀⠀⠀⠀⠀⠀⠀⠀⢰⡇⣿⣿⣿⣿⣿⣿⡿⠟⣻⣿⣿⣿⣿⣿⣥⣄⣀⣀⣀⡀]],
+      [[⠀⢀⣴⣶⣶⣦⣤⣄⠀⢷⣼⣿⣿⡿⠻⠁⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠁⠀]],
+      [[⢀⣿⡿⢻⣿⣿⠿⠟⠀⠀⠟⠛⢿⠿⠿⠷⡶⠚⢻⣿⣿⣿⣿⣿⣋⣁⠀⠀⠀⠀]],
+      [[⠹⡟⠀⠸⡿⠁⠀⠀⠀⠀⠈⢄⠈⠀⠀⠀⠁⢀⣾⣿⣿⣿⣿⠿⠋⠁⠀⠀⠀⠀]],
+      [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠶⣤⣤⣶⣟⣿⣻⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀]],
+      [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⡾⣿⣿⡣⠀⠀⠀⠀⠀⠀]],
+      [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠟⢻⣿⣿⢿⣿⣿⡝⠻⢷⣄⠀⠀⠀⠀⠀]],
+      [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠃⠀⢸⡿⠁⠀⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+      [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠀⠀⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+    }
 
     vim.api.nvim_set_hl(0, 'I2A0', { fg = '#010101' })
     vim.api.nvim_set_hl(0, 'I2A1', { fg = '#7cab43' })
@@ -2069,6 +2087,17 @@ return {
 
     -- ^    LAYOUT    ^ --
     -- v   SECTIONS   v --
+    --
+    --
+    local test_keybind_section = {
+      type = 'text',
+      val = {
+        [[󰙅  File Tree                            <leader>tf]],
+        [[  Copilot Chat                         <leader>cc]],
+        [[  Terminal                                  <C-\>]],
+      },
+      opts = { position = 'center', hl = test_keybind_hl },
+    }
 
     local header = {
       type = 'text',
@@ -2078,20 +2107,20 @@ return {
 
     local git_section = {
       type = 'text',
-      val = get_git_repo() .. '  ' .. get_git_branch(),
-      opts = { position = 'center', hl = colors.purple },
+      val = get_git_repo() .. ' ' .. get_git_branch(),
+      opts = { position = 'center', hl = colors.blue },
     }
 
     local cwd_section = {
       type = 'text',
-      val = icons.ui.open_folder .. '  ' .. shorten_home(base_directory),
-      opts = { position = 'center', hl = colors.blue },
+      val = icons.ui.open_folder .. ' ' .. shorten_home(base_directory),
+      opts = { position = 'center', hl = colors.green },
     }
 
     local recent_cwd_files_section_header = {
       type = 'text',
-      val = icons.ui.files .. '  Recent CWD Files                               ', -- these spaces are to aligh the text with section below
-      opts = { position = 'center', hl = colors.green },
+      val = icons.ui.files .. ' Recent CWD Files                               ', -- these spaces are to aligh the text with section below
+      opts = { position = 'center', hl = colors.purple },
     }
     local recent_cwd_files_section = {
       type = 'group',
@@ -2113,7 +2142,7 @@ return {
     local actions_section_header = {
       type = 'text',
       val = icons.ui.lightning .. ' Actions                                        ', -- these spaces are to aligh the text with section below
-      opts = { position = 'center', hl = colors.purple },
+      opts = { position = 'center', hl = colors.blue },
     }
     local actions_section = {
       type = 'group',
@@ -2122,8 +2151,37 @@ return {
         dashboard.button('f', icons.ui.tree .. '  File Tree', '<cmd>Neotree position=right<cr>'),
         dashboard.button('l', icons.ui.lazy .. '  Lazy', '<cmd>Lazy<cr>'),
         dashboard.button('q', icons.ui.close .. '  Quit NVIM', ':qa<CR>'),
+        dashboard.button('c', '' .. '  Copilot Chat', '<cmd>CopilotChatOpen<cr>'),
       },
       opts = { position = 'center' },
+    }
+
+    vim.api.nvim_set_hl(0, 'TESTCOLOR1', { fg = '#2222ff' })
+    vim.api.nvim_set_hl(0, 'TESTCOLOR2', { fg = '#7cab43' })
+    vim.api.nvim_set_hl(0, 'TESTCOLOR3', { fg = '#ff0000' })
+    vim.api.nvim_set_hl(0, 'TESTCOLOR4', { fg = '#00ff00' })
+    local test_hl = {
+      {
+        { 'TESTCOLOR1', 0, 3 },
+        { 'TESTCOLOR2', 3, 6 },
+        { 'TESTCOLOR3', 6, 9 },
+        { 'TESTCOLOR4', 9, 12 },
+      },
+      {
+        { 'TESTCOLOR1', 0, 3 },
+        { 'TESTCOLOR2', 3, 6 },
+        { 'TESTCOLOR3', 6, 9 },
+        { 'TESTCOLOR4', 9, 12 },
+      },
+    }
+    local test_content = {
+      [[████]],
+      [[████]],
+    }
+    local test_section = {
+      type = 'text',
+      val = haunter,
+      opts = { hl = colors.purple, position = 'center' },
     }
 
     -- ^   SECTIONS   ^ --
@@ -2131,7 +2189,8 @@ return {
     alpha.setup {
       layout = {
         pad(2),
-        header,
+        -- header,
+        test_section,
         pad(1),
         git_section,
         cwd_section,
@@ -2143,7 +2202,8 @@ return {
         -- recent_global_files_section,
         pad(1),
         actions_section_header,
-        actions_section,
+        -- actions_section,
+        test_keybind_section,
       },
     }
   end,
