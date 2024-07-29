@@ -41,11 +41,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('i', 'jj', '<ESC>', { desc = 'Exit Insert Mode' })
 vim.keymap.set('i', 'ii', '<ESC>', { desc = 'Exit Insert Mode' })
 
--- vim.keymap.set('n', '<leader>t', '<cmd> tabn <CR>', { desc = 'Next [T]ab' })
-
-vim.keymap.set('n', '<S-l>', '<cmd> bnext <CR>', { desc = 'Next Buffer' })
-vim.keymap.set('n', '<S-h>', '<cmd> bprevious <CR>', { desc = 'Previous Buffer' })
-
 -- Move text
 -- vim.keymap.set('n', '<C-j>', '<cmd> m .+1<CR>==', { desc = 'Move line down' })
 -- vim.keymap.set('n', '<C-k>', '<cmd> m .-2<CR>==', { desc = 'Move line up' })
