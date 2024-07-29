@@ -11,7 +11,7 @@ return {
         component_separators = '',
         section_separators = { left = '', right = '' },
         theme = 'catppuccin',
-        -- disabled_filetypes = { 'NvimTree' },
+        disabled_filetypes = { 'alpha' },
       },
       sections = {
         lualine_a = {
