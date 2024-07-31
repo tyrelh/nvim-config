@@ -27,6 +27,7 @@ local icons = {
     tree = '󰙅 ',
     lazy = '󰒲 ',
     terminal = ' ',
+    search = ' ',
   },
 }
 
@@ -2093,17 +2094,18 @@ return {
       type = 'text',
       val = {
         [[󰙅  File Tree                            <leader>tf]],
+        [[  Search Files                         <leader>sf]],
         [[  Copilot Chat                         <leader>cc]],
         [[  Terminal                                  <C-\>]],
       },
-      opts = { position = 'center', hl = test_keybind_hl },
+      opts = { position = 'center' },
     }
 
-    local header = {
-      type = 'text',
-      val = bulbasaur,
-      opts = { hl = bulbasaur_hl, position = 'center' },
-    }
+    -- local header = {
+    --   type = 'text',
+    --   val = bulbasaur,
+    --   opts = { hl = bulbasaur_hl, position = 'center' },
+    -- }
 
     local git_section = {
       type = 'text',
@@ -2128,33 +2130,33 @@ return {
       opts = {},
     }
 
-    local recent_global_files_section_header = {
-      type = 'text',
-      val = icons.ui.files .. '  Recent Files                                   ', -- these spaces are to aligh the text with section below
-      opts = { position = 'center', hl = colors.blue },
-    }
-    local recent_global_files_section = {
-      type = 'group',
-      val = map_path_to_button(global_paths, 5, shorten_home),
-      opts = {},
-    }
+    -- local recent_global_files_section_header = {
+    --   type = 'text',
+    --   val = icons.ui.files .. '  Recent Files                                   ', -- these spaces are to aligh the text with section below
+    --   opts = { position = 'center', hl = colors.blue },
+    -- }
+    -- local recent_global_files_section = {
+    --   type = 'group',
+    --   val = map_path_to_button(global_paths, 5, shorten_home),
+    --   opts = {},
+    -- }
 
     local actions_section_header = {
       type = 'text',
       val = icons.ui.lightning .. ' Actions                                        ', -- these spaces are to aligh the text with section below
       opts = { position = 'center', hl = colors.blue },
     }
-    local actions_section = {
-      type = 'group',
-      val = {
-        -- dashboard.button('f', icons.ui.tree .. '  File Tree', '<cmd>NvimTreeToggle<CR>'),
-        dashboard.button('f', icons.ui.tree .. '  File Tree', '<cmd>Neotree position=right<cr>'),
-        dashboard.button('l', icons.ui.lazy .. '  Lazy', '<cmd>Lazy<cr>'),
-        dashboard.button('q', icons.ui.close .. '  Quit NVIM', ':qa<CR>'),
-        dashboard.button('c', '' .. '  Copilot Chat', '<cmd>CopilotChatOpen<cr>'),
-      },
-      opts = { position = 'center' },
-    }
+    -- local actions_section = {
+    --   type = 'group',
+    --   val = {
+    --     -- dashboard.button('f', icons.ui.tree .. '  File Tree', '<cmd>NvimTreeToggle<CR>'),
+    --     dashboard.button('f', icons.ui.tree .. '  File Tree', '<cmd>Neotree position=right<cr>'),
+    --     dashboard.button('l', icons.ui.lazy .. '  Lazy', '<cmd>Lazy<cr>'),
+    --     dashboard.button('q', icons.ui.close .. '  Quit NVIM', ':qa<CR>'),
+    --     dashboard.button('c', '' .. '  Copilot Chat', '<cmd>CopilotChatOpen<cr>'),
+    --   },
+    --   opts = { position = 'center' },
+    -- }
 
     vim.api.nvim_set_hl(0, 'TESTCOLOR1', { fg = '#2222ff' })
     vim.api.nvim_set_hl(0, 'TESTCOLOR2', { fg = '#7cab43' })
