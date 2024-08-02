@@ -54,11 +54,11 @@ return {
       },
     },
     -- Optional, sort search results by "path", "modified", "accessed", or "created".
-    -- The recommend value is "modified" and `true` for `sort_reversed`, which means, for example,
-    -- that `:ObsidianQuickSwitch` will show the notes sorted by latest modified time
     sort_by = 'modified',
     sort_reversed = true,
-    new_notes_location = 'inbox',
+    notes_subdir = 'inbox',
+
+    new_notes_location = 'notes_subdir',
     open_notes_in = 'current',
     templates = {
       folder = 'templates/insertable',
