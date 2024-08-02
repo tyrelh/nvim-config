@@ -58,7 +58,7 @@ return {
     -- that `:ObsidianQuickSwitch` will show the notes sorted by latest modified time
     sort_by = 'modified',
     sort_reversed = true,
-
+    new_notes_location = 'inbox',
     open_notes_in = 'current',
     templates = {
       folder = 'templates/insertable',
