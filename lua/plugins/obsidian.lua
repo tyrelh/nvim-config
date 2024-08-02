@@ -2,6 +2,7 @@ vim.opt.conceallevel = 1
 
 vim.keymap.set('n', '<leader>ot', '<cmd>ObsidianTemplate<cr>', { noremap = true, silent = true, desc = 'Insert [O]bsidian [T]emplate' })
 vim.keymap.set('n', '<leader>on', '<cmd>ObsidianNewFromTemplate<cr>', { noremap = true, silent = true, desc = '[O]bsidian [N]ew Note from Template' })
+vim.keymap.set('n', '<leader>oo', '<cmd>ObsidianOpen<cr>', { noremap = true, silent = true, desc = '[O]pen [O]bsidian' })
 
 -- https://github.com/epwalsh/obsidian.nvim?tab=readme-ov-file
 return {
