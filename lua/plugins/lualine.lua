@@ -18,8 +18,8 @@ return {
           { 'mode', separator = { left = '', right = '' }, padding = 0 },
         },
         lualine_b = {
-          { 'location', padding = 0 },
-          { 'progress', icon = '', padding = 0 },
+          { 'location', padding = { left = 1, right = 0 } },
+          { 'progress', icon = '', padding = { left = 1, right = 0 } },
           { 'filetype', icon_only = true, padding = { left = 1, right = 0 } },
           -- {
           --   'filename',
