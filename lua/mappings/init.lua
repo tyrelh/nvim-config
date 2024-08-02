@@ -51,6 +51,10 @@ vim.keymap.set('i', 'ii', '<ESC>', { desc = 'Exit Insert Mode' })
 vim.keymap.set('v', 'p', '"_dp', { desc = 'Paste over' })
 vim.keymap.set('v', 'P', '"_dP', { desc = 'Paste over' })
 
+-- insert a newline in normal mode
+vim.keymap.set('n', '<leader><cr>', 'o<ESC>0"_D', { desc = 'Insert newline below' })
+-- vim.keymap.set('n', '<leader>O', 'O<ESC>0"_D', { desc = 'Insert newline above' })
+
 -- save like you are used to
 vim.keymap.set({ 'i', 'n', 'v', 's' }, '<C-s>', '<cmd>w<CR><esc>', { desc = 'Save' })
 
