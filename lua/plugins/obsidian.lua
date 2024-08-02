@@ -64,6 +64,8 @@ return {
       folder = 'templates/insertable',
       date_format = '%Y-%m-%d',
     },
+    disable_frontmatter = true,
+
     -- Optional, customize how note IDs are generated given an optional title.
     ---@param title string|?
     ---@return string
