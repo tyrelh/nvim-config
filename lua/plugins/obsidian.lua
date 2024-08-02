@@ -1,4 +1,5 @@
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 1
+
 
 -- https://github.com/epwalsh/obsidian.nvim?tab=readme-ov-file
 return {
