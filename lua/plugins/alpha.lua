@@ -78,7 +78,7 @@ return {
     end
 
     -- sort paths into those in the current working directory and those not
-    local desired_cwd_paths_amount = 5
+    local desired_cwd_paths_amount = 10
     local desired_global_paths_amount = 5
     local cwd_paths = {}
     local current_cwd_paths_amount = 0
