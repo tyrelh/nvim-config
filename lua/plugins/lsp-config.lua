@@ -16,7 +16,7 @@ return {
           'groovyls',
           'lua_ls',
           'pylsp',
-          'tsserver',
+          'ts_ls',
           'yamlls',
         },
       }
